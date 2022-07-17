@@ -1,0 +1,112 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-decoration: none;
+  list-style: none;
+  font-size: 14px;
+}
+
+:root{
+  --success-btn: #41E75C;
+  --success-text: #1BC937;
+
+  --danger-btn: #FF2C2C;
+  --danger-text: #C0B7B7;
+
+  --neutral-btn: #D9D9D9;
+  --black: #000;
+}
+
+@font-face {
+  font-family: SF UI;
+  src: url('../fonts/sf-ui/SFUIText-Light.woff');
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  font-family: "SF UI", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.btn{
+  color: var(--black);
+  background-color: var(--neutral-btn);
+  border: 1px solid var(--neutral-btn);
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: var(--black);
+  color: var(--neutral-btn);
+}
+
+.success{
+  background: var(--success-btn);
+}
+
+.danger{
+  background: var(--danger-btn);
+}
+
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.pause{
+  padding: 5px 20px;
+}
+
+h1{
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.score{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+
+main{
+  height: calc(100vh - 180px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo_container{
+  width: 90%;
+  max-width: 500px;
+}
+
+.selections{
+  height: 110px;
+  bottom: 0;
+  padding: 30px 0;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option{
+  flex: 1 1 80px;
+  width: 40px;
+  padding: 10px 0;
+  border: .5px solid #e4e4;
+  margin: 5px;
+}

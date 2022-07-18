@@ -125,6 +125,24 @@ main{
   padding: 10px;
 }
 
+.resume_counter{
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 348px;
+  position: fixed;
+  flex-direction: column;
+  background: white;
+}
+
+.counter{
+  font-size: 100px;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .selections{
   height: 110px;
   bottom: 0;

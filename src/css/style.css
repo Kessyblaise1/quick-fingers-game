@@ -88,6 +88,9 @@ main{
 .logo_container{
   width: 90%;
   max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pause_screen{
@@ -162,4 +165,5 @@ main{
   padding: 10px 0;
   border: .5px solid #e4e4;
   margin: 5px;
+  font-weight: 400;
 }

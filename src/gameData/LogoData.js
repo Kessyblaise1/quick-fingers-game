@@ -2,7 +2,7 @@ const logos = [
   {
     companyName: 'Mitsubishi',
     logo: './images/logos/Mitsubishi.webp',
-    options: ['Mitsubishi', 'Red Diamond', 'Three Diamond']
+    options: ['Mitsubishi', 'Red Diamond', 'Diamond Three']
   },
   {
     companyName: 'Microsoft',

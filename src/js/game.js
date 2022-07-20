@@ -47,6 +47,7 @@ let id = 0
 
 function renderGame(id) {
   image.setAttribute('src', logos[id].logo)
+  image.setAttribute('alt', logos[id].companyName + " logo")
   optionsContainer.innerHTML = logos[id].options.map(opt => `<button class="option btn">${opt}</button>`).join("")
   scoreContainer.textContent = score
 }

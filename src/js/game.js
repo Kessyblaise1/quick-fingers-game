@@ -41,6 +41,7 @@ resumeButton.addEventListener("click", resume)
 // ======================================================================={  A KEEPER }=========================================================================
 let score = 0
 scoreContainer.textContent = score
+let finalValue = logos.length
 
 let id = 0
 
@@ -55,7 +56,7 @@ renderGame(id)
 // SELECTING THE OPTIONS  ////////////////////////////////////////
 optionsContainer.addEventListener('click', function(e) {
   e.target.textContent == logos[id].companyName ? score += 5 : console.log('not working')
-  e.target.matches('button') ? renderGame(id += 1) : null
+  e.target.matches('button') && id != finalValue -1 ? renderGame(id += 1) : null
 })
 
 // ======================================================================={  OPTION CLICK / NEXT LOGO }=========================================================================

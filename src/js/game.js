@@ -6,6 +6,8 @@ let optionsContainer = document.querySelector(".selections")
 const image = document.querySelector('.logo_image')
 let scoreContainer = document.querySelector(".score")
 
+let currentScore = document.querySelector(".current_score span")
+
 const counter = document.querySelector(".counter")
 let index = 3
 counter.textContent = index
@@ -37,7 +39,6 @@ resumeButton.addEventListener("click", resume)
 // ======================================================================={  NEXT LOGO  }=========================================================================
 
 
-
 // ======================================================================={  A KEEPER }=========================================================================
 let score = 0
 scoreContainer.textContent = score
@@ -50,6 +51,7 @@ function renderGame(id) {
   image.setAttribute('alt', logos[id].companyName + " logo")
   optionsContainer.innerHTML = logos[id].options.map(opt => `<button class="option btn">${opt}</button>`).join("")
   scoreContainer.textContent = score
+  currentScore.textContent = score
 }
 
 renderGame(id)
@@ -61,3 +63,6 @@ optionsContainer.addEventListener('click', function(e) {
 })
 
 // ======================================================================={  OPTION CLICK / NEXT LOGO }=========================================================================
+function startGame() {
+  renderGame(id)
+}

@@ -5,6 +5,8 @@ const pauseScreen = document.querySelector(".pause_screen")
 let optionsContainer = document.querySelector(".selections")
 const image = document.querySelector('.logo_image')
 let scoreContainer = document.querySelector(".score")
+const startButton = document.querySelector(".start")
+const welcome = document.querySelector('.start_screen')
 
 let currentScore = document.querySelector(".current_score span")
 
@@ -47,6 +49,7 @@ let finalValue = logos.length
 let id = 0
 
 function renderGame(id) {
+  welcome.remove()
   image.setAttribute('src', logos[id].logo)
   image.setAttribute('alt', logos[id].companyName + " logo")
   optionsContainer.innerHTML = logos[id].options.map(opt => `<button class="option btn">${opt}</button>`).join("")
@@ -54,7 +57,7 @@ function renderGame(id) {
   currentScore.textContent = score
 }
 
-renderGame(id)
+// renderGame(id)
 
 // SELECTING THE OPTIONS  ////////////////////////////////////////
 optionsContainer.addEventListener('click', function(e) {
@@ -63,6 +66,8 @@ optionsContainer.addEventListener('click', function(e) {
 })
 
 // ======================================================================={  OPTION CLICK / NEXT LOGO }=========================================================================
+startButton.addEventListener('click', startGame)
+
 function startGame() {
   renderGame(id)
 }

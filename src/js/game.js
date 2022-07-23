@@ -7,19 +7,26 @@ const image = document.querySelector('.logo_image')
 let scoreContainer = document.querySelector(".score")
 const startButton = document.querySelector(".start")
 const welcome = document.querySelector('.start_screen')
+let resumeCounter = document.querySelector(".resume_counter")
 
 let currentScore = document.querySelector(".current_score span")
 
 const counter = document.querySelector(".counter")
-let index = 3
-counter.textContent = index
+let startValue = 3
+counter.textContent = startValue
 
 // ======================================================================={  COUNTDOWN TIMER  }=========================================================================
-let countdownTimer = setTimeout(() => {
-  counter.textContent = index- 1
-}, 1000);
 
-
+function startTimer(index) {
+  resumeCounter.style.display = 'flex'
+  let countdownTimer = setInterval(() => {
+    counter.textContent = index -= 1
+    if(index <= 0) {
+      clearInterval(countdownTimer)
+      resumeCounter.style.display = 'none'
+    }
+  }, 1000);
+}
 
 // ======================================================================={  PAUSE FUNCTIONALITY  }=========================================================================
 const pause = () => {
@@ -30,6 +37,7 @@ const pause = () => {
 
 // ======================================================================={  RESUME FUNCTIONALITY  }=========================================================================
 const resume = () => {
+  startTimer(4)
   pauseScreen.style.display = "none"
 }
 
@@ -69,5 +77,6 @@ optionsContainer.addEventListener('click', function(e) {
 startButton.addEventListener('click', startGame)
 
 function startGame() {
+  startTimer(3)
   renderGame(id)
 }

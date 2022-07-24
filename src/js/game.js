@@ -15,7 +15,11 @@ const counter = document.querySelector(".counter");
 let startValue = 3;
 counter.textContent = startValue;
 
+let score = 0;
+scoreContainer.textContent = score;
+let finalValue = logos.length;
 
+let id = 0;
 
 
 // ==============================================================={  PAUSE AND RESUME FUNCTIONALITY  }=========================================================================
@@ -31,19 +35,13 @@ const resume = () => {
   pauseScreen.style.display = "none";
 };
 
-pauseButton.addEventListener("click", () => {
-  pause()
-})
+pauseButton.addEventListener("click", pause)
 resumeButton.addEventListener("click", resume)
 
 
 
 // ======================================================================={  A KEEPER }=========================================================================
-let score = 0;
-scoreContainer.textContent = score;
-let finalValue = logos.length;
 
-let id = 0;
 
 function renderGame(id) {
   welcome.remove();
@@ -59,9 +57,14 @@ function renderGame(id) {
 
 
 // SELECTING THE OPTIONS  ////////////////////////////////////////
+const updateScore = () => {
+  console.log(score)
+  score += 5
+}
+
 optionsContainer.addEventListener("click", function (e) {
-  e.target.textContent == logos[id].companyName ? (score += 5) : console.log("not working");
-  e.target.matches("button") && id != finalValue - 1 ? renderGame((id += 1)) : null;
+  e.target.textContent == logos[id].companyName ? updateScore() : console.log("not working");
+  e.target.matches("button") && id != finalValue - 1 ? renderGame((id += 1)) : updateScore();
 });
 
 

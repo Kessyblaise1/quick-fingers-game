@@ -15,25 +15,28 @@ const counter = document.querySelector(".counter");
 let startValue = 3;
 counter.textContent = startValue;
 
-// ======================================================================={  COUNTDOWN TIMER  }=========================================================================
 
 
 
-// ======================================================================={  PAUSE FUNCTIONALITY  }=========================================================================
+// ==============================================================={  PAUSE AND RESUME FUNCTIONALITY  }=========================================================================
 const pause = () => {
   pauseScreen.style.display = "flex";
+  optionsContainer.style.display = 'none'
 };
 
-// ======================================================================={  RESUME FUNCTIONALITY  }=========================================================================
+
 const resume = () => {
   startTimer(4)
+  optionsContainer.style.display = 'flex'
   pauseScreen.style.display = "none";
 };
 
-pauseButton.addEventListener("click", pause);
-resumeButton.addEventListener("click", resume);
+pauseButton.addEventListener("click", () => {
+  pause()
+})
+resumeButton.addEventListener("click", resume)
 
-// ======================================================================={  NEXT LOGO  }=========================================================================
+
 
 // ======================================================================={  A KEEPER }=========================================================================
 let score = 0;
@@ -53,13 +56,15 @@ function renderGame(id) {
   currentScore.textContent = score;
 }
 
-// renderGame(id)
+
 
 // SELECTING THE OPTIONS  ////////////////////////////////////////
 optionsContainer.addEventListener("click", function (e) {
   e.target.textContent == logos[id].companyName ? (score += 5) : console.log("not working");
   e.target.matches("button") && id != finalValue - 1 ? renderGame((id += 1)) : null;
 });
+
+
 
 // ======================================================================={  OPTION CLICK / NEXT LOGO }=========================================================================
 startButton.addEventListener("click", startGame);

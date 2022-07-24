@@ -2,12 +2,15 @@
 const pauseButton = document.querySelector(".pause");
 const resumeButton = document.querySelector(".resume");
 const pauseScreen = document.querySelector(".pause_screen");
-let optionsContainer = document.querySelector(".selections");
 const image = document.querySelector(".logo_image");
-let scoreContainer = document.querySelector(".score");
 const startButton = document.querySelector(".start");
 const welcome = document.querySelector(".start_screen");
+const endScreen = document.querySelector('.completed')
+const finalScore = document.querySelector('.final_score')
+let optionsContainer = document.querySelector(".selections");
+let scoreContainer = document.querySelector(".score");
 let resumeCounter = document.querySelector(".resume_counter");
+
 
 let currentScore = document.querySelector(".current_score span");
 
@@ -58,14 +61,8 @@ function renderGame(id) {
 
 // SELECTING THE OPTIONS  ////////////////////////////////////////
 const updateScore = () => {
-  console.log(score)
   score += 5
 }
-
-optionsContainer.addEventListener("click", function (e) {
-  e.target.textContent == logos[id].companyName ? updateScore() : console.log("not working");
-  e.target.matches("button") && id != finalValue - 1 ? renderGame((id += 1)) : updateScore();
-});
 
 
 
@@ -77,7 +74,7 @@ function startGame() {
   renderGame(id);
 }
 
-function startTimer(index) {
+const startTimer = (index) => {
   resumeCounter.style.display = "flex";
   let countdownTimer = setInterval(() => {
     counter.textContent = index -= 1;
@@ -94,3 +91,21 @@ function startTimer(index) {
   }, 4000);
   renderGame(id)
 }
+
+
+
+const endGame = () => {
+  endScreen.style.visibility = 'visible'
+  finalScore.textContent = score
+  updateScore()
+}
+
+
+optionsContainer.addEventListener("click", function (e) {
+  if(e.target.matches('button')){
+    e.target.textContent == logos[id].companyName ? updateScore() : null
+    e.target.matches("button") && id != finalValue - 1 ? renderGame((id += 1)) : endGame()
+  }else{
+    null
+  }
+});

@@ -4,12 +4,16 @@ const resumeButton = document.querySelector(".resume");
 const pauseScreen = document.querySelector(".pause_screen");
 const image = document.querySelector(".logo_image");
 const startButton = document.querySelector(".start");
-const welcome = document.querySelector(".start_screen");
+const welcome = document.querySelector(".start_screen");          // WELCOME SCREEN
 const endScreen = document.querySelector('.completed')
 const finalScore = document.querySelector('.final_score')
+const output = document.createElement('span')                     // TINY FLOATING SCORE BASED ON INPUT
+const hilighter = document.createElement('span')
+hilighter.classList.add('hilighter')
 let optionsContainer = document.querySelector(".selections");
 let gameTimer = document.querySelector(".game_timer");
 let resumeCounter = document.querySelector(".resume_counter");
+
 
 
 let currentScore = document.querySelector(".current_score span");
@@ -19,10 +23,24 @@ let startValue = 3;
 counter.textContent = startValue;
 
 let score = 0;
-scoreContainer.textContent = score;
 let finalValue = logos.length;
 
 let id = 0;
+
+
+// ==============================================================={  OUTPUT STYLE CODE  }=========================================================================
+output.style.position = 'absolute'
+const checkInput = (target) => {
+  hilighter.style.visibility = 'visible'
+  hilighter.textContent = '+0'
+  document.body.appendChild(hilighter)
+  setInterval(() => {
+    hilighter.style.transform = `translate(-50%, -60px )`
+  }, 300);
+  setTimeout(() => {
+    document.body.removeChild(hilighter)
+  }, 1000);
+}
 
 
 // ==============================================================={  PAUSE AND RESUME FUNCTIONALITY  }=========================================================================
@@ -53,7 +71,6 @@ function renderGame(id) {
   optionsContainer.innerHTML = logos[id].options
     .map((opt) => `<button class="option btn">${opt}</button>`)
     .join("");
-  scoreContainer.textContent = score;
   currentScore.textContent = score;
 }
 
@@ -109,4 +126,6 @@ optionsContainer.addEventListener("click", function (e) {
   }else{
     null
   }
+  checkInput(e.target)
+  console.log(e.target.getBoundingClientRect())
 });

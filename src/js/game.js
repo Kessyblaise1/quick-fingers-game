@@ -8,7 +8,7 @@ const welcome = document.querySelector(".start_screen");
 const endScreen = document.querySelector('.completed')
 const finalScore = document.querySelector('.final_score')
 let optionsContainer = document.querySelector(".selections");
-let scoreContainer = document.querySelector(".score");
+let gameTimer = document.querySelector(".game_timer");
 let resumeCounter = document.querySelector(".resume_counter");
 
 

@@ -33,7 +33,7 @@ const pause = () => {
 
 
 const resume = () => {
-  startTimer(4)
+  startTimer(3)
   optionsContainer.style.display = 'flex'
   pauseScreen.style.display = "none";
 };
@@ -75,6 +75,7 @@ function startGame() {
 }
 
 const startTimer = (index) => {
+  counter.textContent = index
   resumeCounter.style.display = "flex";
   let countdownTimer = setInterval(() => {
     counter.textContent = index -= 1;
@@ -88,7 +89,7 @@ const startTimer = (index) => {
   let timeOut = setTimeout(() => {
     const options = document.querySelectorAll(".option");
     options.forEach((opt) => opt.removeAttribute("disabled"));
-  }, 4000);
+  }, 3000);
   renderGame(id)
 }
 

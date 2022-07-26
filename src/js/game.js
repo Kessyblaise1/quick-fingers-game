@@ -38,6 +38,7 @@ const checkInput = (target) => {
     hilighter.style.transform = `translate(-50%, -60px )`
   }, 300);
   setTimeout(() => {
+    hilighter.style.transform = `translate(-50%, 0px )`
     document.body.removeChild(hilighter)
   }, 1000);
 }
